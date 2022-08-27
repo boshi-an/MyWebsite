@@ -16,8 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 import Publications.views as views
+from django.conf import settings
+from django.conf.urls import include
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.IndexView)
+    path('', views.IndexView),
+    path('mdeditor/', include('mdeditor.urls'))
 ]
+
+
+if settings.DEBUG:
+    # static files (images, css, javascript, etc.)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
