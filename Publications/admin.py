@@ -4,4 +4,8 @@ from django.contrib import admin
 
 from . import models
 
-admin.site.register(models.Pulication)
+# Define the admin class
+class PublicationAdmin(admin.ModelAdmin):
+    list_display = ('Name',)
+
+admin.site.register(models.Pulication, PublicationAdmin)
