@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'Publications',
+    'SiteView',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'mdeditor',
-    'preferences'
+    'preferences',
+    'django_extensions'
 ]
 
 MIDDLEWARE = [
@@ -143,3 +145,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'Uploads')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'  # django 3.0 + 默认为 deny
+
+# Site settings
+
+SITE_ID = 1
+
+# Custom settings
+
+PASSCODE = 'aodufbadshjbvasdjhbfkawhejbfa'
+PARENT_URL = 'boshi-an.github.io'

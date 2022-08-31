@@ -15,6 +15,17 @@
                 </div>
             </div>
 
+            <div class="ui middle aligned stackable grid container">
+                <div class="row">
+                    <div class="five wide left floated column">
+                        <img src="{{ Photo.url }}" alt="{{ Name }}" class="ui medium bordered rounded image">
+                    </div>
+                    <div class="eleven wide column">
+                        {{ Introduction|safe }}
+                    </div>
+                </div>
+            </div>
+
             <div class="ui vertical stripe intro segment">
                 <div class="ui stackable very relaxed center aligned grid container">
                     <div class="ui masthead vertical segment">
@@ -24,23 +35,25 @@
             </div>
 
             <div class="ui divided link items">
+                {% for item in Publications %}
                 <div class="item">
                     <div class="image">
-                        <img src="{% static 'images/logo/108x108.png' %}">
+                        <img src="{% static item.teaser.url %}">
                     </div>
                     <div class="content">
-                        <a class="header">Header</a>
+                        <a class="header">{{ item.name }}</a>
                         <div class="meta">
-                            <span>Description</span>
+                            <span>{{ item.introduction }}</span>
                         </div>
                         <div class="description">
                             <p></p>
                         </div>
                         <div class="extra">
-                            Additional Details
+                            {{ item.addinfo }}
                         </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </div>

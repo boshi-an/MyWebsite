@@ -15,15 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-import Publications.views as views
+import Publications.views as publications_views
+import SiteView.views as site_views
 from django.conf import settings
 from django.conf.urls import include
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.IndexView),
-    path('mdeditor/', include('mdeditor.urls'))
+    path('', publications_views.IndexView),
+    path('mdeditor/', include('mdeditor.urls')),
+    path('addstar/<str:website>/', site_views.AddStar),
+    path('knock/', site_views.Knock),
 ]
 
 

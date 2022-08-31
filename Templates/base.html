@@ -10,6 +10,9 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
         integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="{% static 'semantic/dist/semantic.min.js' %}"></script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3.0.0/es5/tex-mml-chtml.js">
+        </script>
     <script>
         $(document)
             .ready(function () {
@@ -146,26 +149,19 @@
     <div class="ui inverted vertical masthead center aligned segment">
         <div class="ui text container">
             <h1 class="ui inverted header">
-                Boshi An
+                {{ preferences.SitePreference.my_name }}
             </h1>
-            <h2> Student | Researcher | Piano Player </h2>
+            <h2> {{ Title }} </h2>
             <div class="ui doubling four column grid center aligned">
-                <a href="https://github.com" class="item">
-                    <i class="big github icon"></i>
+                {% for contact_item in Contact %}
+                <a href="{{ contact_item.0 }}" class="item">
+                    <i class="big {{ contact_item.1}} icon"></i>
                 </a>
-                <a href="https://www.linkedin.cn/incareer/in/%E5%8D%9A%E6%96%BD-%E5%AE%89-2b3275236" class="item">
-                    <i class="big linkedin icon"></i>
-                </a>
-                <a href="boshi_an@stu.pku.edu.cn" class="item">
-                    <i class="big mail icon"></i>
-                </a>
-                <a href="https://space.bilibili.com/234091394" class="item">
-                    <i class="big youtube icon"></i>
-                </a>
+                {% endfor %}
             </div>
         </div>
     </div>
-    
+
     {% block page %}
     {% endblock %}
 
@@ -204,7 +200,8 @@
                 <div class="two wide right floated column">
                     <h4 class="ui header"> Public Security Record </h4>
                     <div class="ui link list">
-                        <a class="item" target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=43010502001469">
+                        <a class="item" target="_blank"
+                            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=43010502001469">
                             <img src="{% static '/images/logo/beian.png' %}" class="ui centered image">
                             湘公网安备 43010502001469号
                         </a>
@@ -216,9 +213,14 @@
                 </div>
             </div>
             <div class="ui section divider"></div>
+                <p>
+                    Each time a new website forked from this project is up, a star will automatically add here.
+                </p>
+            <div class="ui section divider"></div>
             <img src="{% static '/images/logo/108x108.png' %}" class="ui centered mini image">
             <div class="ui horizontal small divided link list">
-                <a class="item" href="http://semantic-ui.mit-license.org/" target="_blank">Free &amp; Open Source (MIT)</a>
+                <a class="item" href="http://semantic-ui.mit-license.org/" target="_blank">Free &amp; Open Source
+                    (MIT)</a>
             </div>
         </div>
     </div>
