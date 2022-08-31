@@ -136,7 +136,6 @@ else:
     STATIC_ROOT = os.path.join(BASE_DIR, 'Static')
 
 MEDIA_URL = '/media/'
-
 MEDIA_ROOT = os.path.join(BASE_DIR, 'Uploads')
 
 # Default primary key field type
@@ -154,3 +153,6 @@ SITE_ID = 1
 
 PASSCODE = 'aodufbadshjbvasdjhbfkawhejbfa'
 PARENT_URL = 'boshi-an.github.io'
+SITE_URL = 'http://123.56.235.89/'
+SITE_URL_DEBUG = "http://localhost:8000"
+SITE_URL_DEPLOY = 'http://123.56.235.89/'
