@@ -152,7 +152,7 @@ SITE_ID = 1
 # Custom settings
 
 PASSCODE = 'aodufbadshjbvasdjhbfkawhejbfa'
-PARENT_URL = 'boshi-an.github.io'
+PARENT_URL = 'localhost:8001'
 SITE_URL = 'http://123.56.235.89/'
 SITE_URL_DEBUG = "http://localhost:8000"
 SITE_URL_DEPLOY = 'http://123.56.235.89/'

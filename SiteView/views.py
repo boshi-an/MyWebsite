@@ -11,12 +11,18 @@ def AddStar(request) :
 
     website = request.GET.get('website')
 
-    new_star = Star.objects.get_or_create(link=website)
-    new_star.save()
+    if website is not None :
 
-    data = {'status': 'success'}
+        print("SiteView: adding site {}".format(website))
 
-    print("SiteView: adding site {}".format(website))
+        new_star = Star.objects.get_or_create(link=website)
+        new_star.save()
+
+        data = {'status': 'success'}
+    
+    else :
+
+        data = {'status': 'failed'}
 
     return JsonResponse(data, safe=False)
 

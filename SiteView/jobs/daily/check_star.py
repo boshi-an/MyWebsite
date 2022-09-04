@@ -28,4 +28,6 @@ class CheckStar(DailyJob):
                     item.delete()
         
         # add a star to parent site
-        response = requests.get(settings.PARENT_URL + '/addstar/', data={'website': Site.objects.get_current().domain})
+        target_url = 'http://' + settings.PARENT_URL + '/addstar/'
+        print("Trying to add star to {}".format(target_url))
+        response = requests.get(target_url, data={'website': Site.objects.get_current().domain})

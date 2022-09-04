@@ -25,7 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', publications_views.IndexView),
     path('mdeditor/', include('mdeditor.urls')),
-    path('addstar/<str:website>/', site_views.AddStar),
+    path('addstar/', site_views.AddStar),
     path('knock/', site_views.Knock),
 ]
 
