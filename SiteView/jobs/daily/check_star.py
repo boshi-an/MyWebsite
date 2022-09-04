@@ -30,4 +30,7 @@ class CheckStar(DailyJob):
         # add a star to parent site
         target_url = 'http://' + settings.PARENT_URL + '/addstar/'
         print("Trying to add star to {}".format(target_url))
-        response = requests.get(target_url, data={'website': Site.objects.get_current().domain})
+        try:
+            requests.post(target_url, data={'website': Site.objects.get_current().domain})
+        except requests.exceptions.ConnectionError:
+            print("failed to connect")
